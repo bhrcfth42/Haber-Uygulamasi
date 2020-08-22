@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+        <a class="navbar-brand" href="/Yonetim">
+            <img src="~/Content/assets/img/bg-masthead.jpg" class="align-top d-inline-block" alt="" style="object-fit:contain" height="30">
+            Haber Denemesi
+        </a>
+    </div>
+    <div class="list-group list-group-flush">
+        <a href=@Url.Action("HaberEkle") class="list-group-item list-group-item-action bg-light">Haber Ekle</a>
+        <a href=@Url.Action("HaberListele") class="list-group-item list-group-item-action bg-light">Tüm Haberler</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Profil</a>
+        <a href="@Url.Action("Cikis")" class="list-group-item list-group-item-action bg-light">Çıkış</a>
+    </div>
+</div>

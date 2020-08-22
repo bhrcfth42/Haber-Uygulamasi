@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Ara";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<HaberPortal.Haber>
+
+    <div class="container">
+        <div class="col-md-4 mx-auto text-center">
+            <h1 class="mt-4 mb-3">
+                @ViewBag.Ara Arama Sonucu
+            </h1>
+        </div>
+        @{
+            if (ViewBag.Message == null)
+            {
+                <div class="row" style="margin:10px">
+
+                    @foreach (var haber in Model)
+                    {
+
+                        <div class="col-md-6 portfolio-item" style="margin-top:5px">
+                            <div class="card h-100">
+                                <div>
+                                    <a href="/Haber/Goster/@haber.Baslik.Replace(@":", "")/@haber.Id"><img class="card-img" src="data:image;base64,@Convert.ToBase64String(haber.KucukResim)" alt="@haber.Baslik" style="word-wrap:break-word;object-fit:cover" height="300"></a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="/Haber/Goster/@haber.Baslik.Replace(@":", "")/@haber.Id" style="color:black;font-weight:bold;">@haber.Baslik</a>
+                                    </h4>
+                                    <p class="card-text" style="word-wrap:break-word">@haber.Ozet</p>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="text-muted" style="word-wrap:break-word">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                            <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                        </svg> @haber.Goruntulenme
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info col-md-4 mx-auto" style="text-align:center">
+                    <h3 class="mt-4 mb-3">
+                        @ViewBag.Message
+                    </h3>
+                    <a href="@Url.Action("Portfolio","Home")"><div class="btn btn-info">Tüm Haberler</div></a>
+                </div>
+            }
+        }
+        @if (Model != null)
+        {
+            <hr />
+            <span style="text-align:center">@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Arama", new { sayfa }))</span>
+        }
+
+    </div>
+

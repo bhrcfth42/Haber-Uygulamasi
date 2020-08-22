@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="HaberContext-Web.config Connection String" description="HaberContext Connection String used in web.config by the application to access the database." defaultValue="data source=DESKTOP-DH7AGKP;initial catalog=Haber;integrated security=True;Persist Security Info=True;User ID=sa;Password=123;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fatih\\source\\repos\\HaberPortal\\HaberPortal\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HaberContext']/@connectionString" />
+  </parameter>
+</parameters>

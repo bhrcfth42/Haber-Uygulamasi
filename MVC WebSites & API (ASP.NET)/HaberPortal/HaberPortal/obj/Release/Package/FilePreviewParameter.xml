@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Haber Sitesi" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\fatih\\source\\repos\\HaberPortal\\HaberPortal\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\fatih\\source\\repos\\HaberPortal\\HaberPortal\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="HaberContext-Web.config Connection String" description="" value="Data Source=DESKTOP-DH7AGKP;Initial Catalog=Haber;Persist Security Info=True;User ID=sa;Password=123;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fatih\\source\\repos\\HaberPortal\\HaberPortal\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HaberContext']/@connectionString" />
+  </parameter>
+</parameters>

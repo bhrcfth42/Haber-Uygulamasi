@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-md navbar-dark bg-info">
+    <a class="navbar-brand" href="@Url.Action("Index", "Home")" style="color:white">
+        <img src="~/Content/assets/img/bg-masthead.jpg" class="align-top d-inline-block" alt="" style="object-fit:contain" height="30">
+        Haber Denemesi
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("About", "Home")" style="color:white">Hakkımızda</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Portfolio", "Home")" style="color:white">Haberler</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Services", "Home")" style="color:white">İletişim</a>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0" action="/Arama/Ara">
+            <input name="txtAra" class="form-control mr-sm-2" type="text" placeholder="Arama" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:white">Ara</button>
+        </form>
+    </div>
+</nav>

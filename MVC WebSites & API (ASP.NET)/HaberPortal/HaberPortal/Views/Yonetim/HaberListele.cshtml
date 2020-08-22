@@ -1,0 +1,73 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<HaberPortal.Haber>
+@{
+    ViewBag.Title = "Haber Listele";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Haber Listele</h2>
+
+<div class="col-lg-12" style="overflow:auto">
+    <table class="table">
+        <tr>
+            <th>
+                Kategori Adi
+            </th>
+            <th>
+                Tip Adı
+            </th>
+            <th>
+                Başlık
+            </th>
+            <th>
+                Yayım Tarihi
+            </th>
+            <th>
+                Resim
+            </th>
+            <th>
+                Görüntülenme
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kategori.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tip.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YayimTarihi)
+                </td>
+                <td>
+                    <img class="card-img" src="data:image;base64,@Convert.ToBase64String(item.KucukResim)" style="object-fit:cover;width:200px">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Goruntulenme)
+                </td>
+                <td>
+                    <a href="@Url.Action("HaberDüzenle",new { id = item.Id })">
+                        <div class="btn btn-warning" style="margin:2px;color:white">
+                            Düzenle
+                        </div>
+                    </a>
+                    <a href="@Url.Action("HaberSil",new { id = item.Id })">
+                        <div class="btn btn-danger" style="margin:2px;color:white">
+                            Sil
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<span style="text-align:center">@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("HaberListele", new { sayfa }))</span>

@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Giriş";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Haber Denemesi</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/signin.css" rel="stylesheet" />
+</head>
+<body class="text-center">
+    <form class="form-signin" method="post" action="/UyeGiris/Index">
+        @if (ViewBag.Mesaj!=null)
+        {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.Mesaj
+        </div>
+        }
+        <h1 class="h3 mb-3 font-weight-normal">Giriş Yapınız</h1>
+        <label for="inputEmail" class="sr-only">Kullanıcı Adı</label>
+        <input type="text" id="inputkullaniciadi" name="KullaniciAdi" class="form-control" placeholder="Kullanıcı adı giriniz" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Parola</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Parola giriniz" required="" name="Parola">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş</button>
+        <p class="mt-5 mb-3 text-muted">Copyright &copy; @DateTime.Now.Year - Önder Fatih Buhurcu</p>
+    </form>
+</body>
+</html>

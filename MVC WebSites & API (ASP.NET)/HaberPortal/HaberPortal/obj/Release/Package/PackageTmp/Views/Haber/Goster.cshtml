@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = Model.Baslik;
+}
+
+@model HaberPortal.Haber
+
+<div class="row" style="margin:10px">
+    <div class="col-lg-6 col-sm-12">
+        <img class="card-img" src="data:image;base64,@Convert.ToBase64String(Model.Resim)" alt="@Model.Baslik" style="object-fit:cover" height="400">
+    </div>
+    <div class="col-lg-6 col-sm-12" style="text-overflow:ellipsis">
+        <h2 style="word-wrap:break-word">@Model.Baslik</h2>
+        <h5 style="word-wrap:break-word">@Model.Ozet</h5>
+    </div>
+    <div class="col-md-12" style="margin:auto">
+        @Html.Raw(Model.Icerik)
+    </div>
+</div>
+
+@if (Model.Resim1.Count > 0)
+{
+    <div class="row" style="margin:10px">
+        @foreach (var haber in Model.Resim1)
+        {
+            <div class="col-lg-3 col-sm-6">
+                <img class="img-fluid rounded mb-4" src="@haber.Resim1" alt="@Model.Baslik">
+            </div>
+        }
+    </div>  
+}

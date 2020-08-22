@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="col-md-12" style="overflow:auto">
+        <h3>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(User.Identity.Name) Hoş Geldiniz</h3>
+    </div>
+

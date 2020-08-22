@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/simple-sidebar.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>@ViewBag.Title - Haber Deneme</title>
+
+</head>
+
+<body id="page-top">
+
+    <div class="d-flex" id="wrapper">
+        @{ Html.RenderAction("SidebarGetir");}
+        <div id="page-content-wrapper">
+
+            @{ Html.RenderAction("NavbarGetir");}
+
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+            <footer class="py-5">
+                <div class="container"><div class="small text-center text-muted">Copyright &copy; @DateTime.Now.Year - Önder Fatih Buhurcu</div></div>
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+    @RenderSection("scripts",false)
+    
+</body>
+</html>

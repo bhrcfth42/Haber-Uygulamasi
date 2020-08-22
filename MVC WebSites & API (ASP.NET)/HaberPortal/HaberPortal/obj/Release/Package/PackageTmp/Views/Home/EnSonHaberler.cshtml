@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<HaberPortal.Haber>
+
+@helper YaziBelirle(string yazi, int uzunluk)
+{
+    if (yazi.Length > uzunluk)
+    {
+        Write(yazi.Substring(0, uzunluk) + "...");
+    }
+
+    else
+    {
+        @yazi
+    }
+
+}
+
+@helper IcerikYazdırma(string yazi)
+{
+    if (yazi.Length > 170)
+    {
+        @Html.Raw(yazi.Substring(0, 170) + "...")
+    }
+    else
+    {
+        @Html.Raw(yazi)
+    }
+}
+    <div class="row">
+        @foreach (var haber in Model)
+        {
+            <div class="col-md-4" style="margin-top:5px">
+                <div class="card h-100">
+                    <a href="/Haber/Goster/@haber.Baslik.Replace(@":", "")/@haber.Id"><img class="card-img" src="data:image;base64,@Convert.ToBase64String(haber.KucukResim)" alt="@haber.Baslik" style="object-fit:cover" height="300"></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="/Haber/Goster/@haber.Baslik.Replace(@":", "")/@haber.Id" style="color:black;font-weight:bold;">@YaziBelirle(haber.Baslik, 30)</a>
+                        </h4>
+                        <p class="card-text" style="word-wrap:break-word">@YaziBelirle(haber.Ozet, 100)</p>
+                        <div class="text-muted" style="word-wrap:break-word">@IcerikYazdırma(haber.Icerik)</div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted" style="word-wrap:break-word">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                            </svg> @haber.Goruntulenme
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

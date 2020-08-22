@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<HaberPortal.Haber>
+
+
+@helper İcerikBelirle(string icerik, int uzunluk)
+{
+    if (@icerik.Length > uzunluk)
+    {
+        Write(@icerik.Substring(0, uzunluk) + "...");
+    }
+
+    else
+    {
+        @icerik
+    }
+
+}
+
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        @{
+            int i = 0;
+            foreach (var haber in Model)
+            {
+                <li data-target="#demo" data-slide-to="@i" class=@(haber == Model.First() ? "active" : "")></li>
+                i++;
+            }
+        }
+
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        @foreach (var haber in Model)
+        {
+
+            <div class="carousel-item @(haber == Model.First() ? "active" : "")" style="height:500px">
+                <a href="/Haber/Goster/@haber.Baslik.Replace(@":","")/@haber.Id">
+                    <div>
+                        <img class="card-img" src="data:image;base64,@Convert.ToBase64String(haber.Resim)" style="object-fit:cover;height:500px">
+                    </div>
+                    <div class="carousel-caption" style="background:rgba(128, 128, 128,0.4)">
+                        <h3 style="word-wrap:break-word">@haber.Baslik</h3>
+                        <p style="word-wrap:break-word">@İcerikBelirle(haber.Ozet, 250)</p>
+                    </div>
+                </a>
+            </div>
+
+        }
+
+        @if (Model.Count() != 0)
+        {
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        }
+        }
+    </div>
+
+</div>
