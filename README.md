@@ -1,6 +1,6 @@
 # Haber Sitesi
 
-Asp.Net Mvc yapısı kullanılarak mobil uygulamada API yapılıp Flutter ile haber uygulaması yapılmıştır. VeriTabanı olarak MSSQL veri tabanı aracılığı ile yapılmıştır. API Asp.net MVC ile yazılmıştır. Yönetim Paneline giriş membership ile yapıldı. Veri tabanında da membership hazır tabloları kullanıldı.
+ASP.NET MVC yapısı kullanılarak öncelikle web sitesinin kendisi Front-End kısmında Bootstrap kullanılarak yapılmıştır. Mobil uygulama için API yapılıp mobil cihazlar ile veri transferi gerçekleştirilmiştir. Mobil uygulama kısmı Flutter dili ile yapılmıştır. Veritabanı olarak SQL Server 2017 kullanılmıştır. Yönetim Paneline giriş membership ile yapıldı. Veri tabanında da membership hazır tabloları kullanıldı.
 
 
 ## Proje Genel Görünümü
